@@ -43,7 +43,7 @@ export default function Hero() {
 
       {/* Content */}
       <div ref={contentRef} className="relative z-10 max-w-3xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
-        <h1 className="text-5xl sm:text-6xl lg:text-7xl font-bold text-primary mb-6 leading-tight text-balance">
+        <h1 className="text-3xl sm:text-4xl lg:text-5xl font-bold text-primary mb-6 leading-tight text-balance">
           Todo lo que necesitás para tus proyectos, en un solo lugar.
         </h1>
 
@@ -65,16 +65,6 @@ export default function Hero() {
           >
             Contáctanos
           </Button>
-        </div>
-      </div>
-
-      {/* Scroll Indicator */}
-      <div className="absolute bottom-8 left-1/2 transform -translate-x-1/2 z-10 animate-bounce">
-        <div className="text-center">
-          <p className="text-sm text-foreground/60 mb-2">Desplázate</p>
-          <svg className="w-6 h-6 text-accent mx-auto" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-            <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M19 14l-7 7m0 0l-7-7m7 7V3" />
-          </svg>
         </div>
       </div>
     </section>

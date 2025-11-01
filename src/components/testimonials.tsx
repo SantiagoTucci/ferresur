@@ -25,14 +25,6 @@ const testimonials = [
     text: "La mejor ferretería en Merlo. Productos certificados y precios justos. El personal siempre está disponible para responder mis dudas técnicas.",
     rating: 5,
   },
-  {
-    id: 4,
-    name: "Ana Rodrígez",
-    role: "Diseñadora de Interiores",
-    image: "/designer-professional-portrait.jpg",
-    text: "Impresionada con la variedad y la expertise del equipo. Ofrecen soluciones personalizadas para cada necesidad de diseño.",
-    rating: 5,
-  },
 ]
 
 export default function Testimonials() {
@@ -41,10 +33,13 @@ export default function Testimonials() {
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="text-center mb-12">
           <h2 className="text-4xl sm:text-5xl font-bold text-primary mb-4">Opiniones de Clientes</h2>
-          <p className="text-foreground/70 max-w-2xl mx-auto">Lo que dicen nuestros clientes sobre Ferresur</p>
+          <p className="text-foreground/70 max-w-2xl mx-auto">
+            Lo que dicen nuestros clientes sobre Ferresur.  
+            <br />
+          </p>
         </div>
 
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
+        <div className="grid grid-cols-1 md:grid-cols-3 lg:grid-cols-3 gap-6">
           {testimonials.map((testimonial, index) => (
             <Card key={index} className="p-6 flex flex-col hover:shadow-lg transition-shadow border-0 relative">
               <Quote className="w-5 h-5 text-accent/30 mb-3" />
@@ -70,6 +65,18 @@ export default function Testimonials() {
               </div>
             </Card>
           ))}
+        </div>
+
+        {/* Botón adicional para invitar a dejar reviews */}
+        <div className="text-center mt-12">
+          <a
+            href="https://maps.app.goo.gl/eEuCSr8mWHsP5m7y7" 
+            target="_blank"
+            rel="noopener noreferrer"
+            className="inline-block px-6 py-3 bg-accent text-accent-foreground font-semibold rounded-lg shadow hover:bg-accent/90 transition"
+          >
+            Deja tu opinión en Google
+          </a>
         </div>
       </div>
     </section>

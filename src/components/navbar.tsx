@@ -13,7 +13,7 @@ export default function Navbar({ isScrolled }: NavbarProps) {
 
   const navLinks = [
     { href: "#inicio", label: "Inicio" },
-    { href: "#productos", label: "Productos" },
+    { href: "#ambitos", label: "Ambitos" },
     { href: "#nosotros", label: "Nosotros" },
     { href: "#contacto", label: "Contacto" },
   ]
@@ -36,10 +36,11 @@ export default function Navbar({ isScrolled }: NavbarProps) {
         <div className="flex justify-between items-center h-16">
           {/* Logo */}
           <div className="flex items-center gap-2">
-            <div className="w-8 h-8 bg-primary rounded-lg flex items-center justify-center">
-              <span className="text-primary-foreground font-bold text-lg">F</span>
-            </div>
-            <span className="font-bold text-primary text-lg hidden sm:inline">Ferresur</span>
+            <img
+              src="/src/assets/logo/ferresur.jpg"
+              alt="Ferresur Logo"
+              className="w-20 h-11 rounded-lg object-cover"
+            />
           </div>
 
           {/* Desktop Navigation */}

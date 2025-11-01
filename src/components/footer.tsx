@@ -14,7 +14,7 @@ export default function Footer() {
     ],
     company: [
       { label: "Inicio", href: "#inicio" },
-      { label: "Productos", href: "#productos" },
+      { label: "Ambitos", href: "#ambitos" },
       { label: "Nosotros", href: "#nosotros" },
       { label: "Contacto", href: "#contacto" },
     ],
@@ -40,9 +40,6 @@ export default function Footer() {
             {/* Company Info */}
             <div className="lg:col-span-1">
               <div className="flex items-center gap-2 mb-4">
-                <div className="w-8 h-8 bg-accent rounded-lg flex items-center justify-center animate-pulse">
-                  <span className="text-primary font-bold">F</span>
-                </div>
                 <span className="font-bold text-lg">Ferresur</span>
               </div>
               <p className="text-primary-foreground/80 text-sm mb-4">
@@ -52,11 +49,11 @@ export default function Footer() {
               <div className="space-y-2 text-sm">
                 <div className="flex gap-2 items-center text-primary-foreground/70">
                   <Phone size={16} />
-                  <span>+54 11 XXXX-XXXX</span>
+                  <span>+54 11 50988814</span>
                 </div>
                 <div className="flex gap-2 items-center text-primary-foreground/70">
                   <Mail size={16} />
-                  <span>info@ferresur.com.ar</span>
+                  <span>javiertucci@hotmail.com</span>
                 </div>
                 <div className="flex gap-2 items-start text-primary-foreground/70">
                   <MapPin size={16} className="mt-0.5" />
@@ -99,23 +96,6 @@ export default function Footer() {
               </ul>
             </div>
 
-            {/* Legal Links */}
-            <div>
-              <h4 className="font-bold mb-4 text-sm uppercase tracking-wider">Legal</h4>
-              <ul className="space-y-2">
-                {footerLinks.legal.map((link) => (
-                  <li key={link.label}>
-                    <a
-                      href={link.href}
-                      className="text-primary-foreground/80 hover:text-accent transition-colors text-sm"
-                    >
-                      {link.label}
-                    </a>
-                  </li>
-                ))}
-              </ul>
-            </div>
-
             {/* Social Links */}
             <div>
               <h4 className="font-bold mb-4 text-sm uppercase tracking-wider">Síguenos</h4>
@@ -145,7 +125,7 @@ export default function Footer() {
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="flex flex-col sm:flex-row justify-between items-center gap-4 text-primary-foreground/70 text-sm">
             <p>© {currentYear} Ferresur. Todos los derechos reservados.</p>
-            <p>Diseñado con cuidado para profesionales</p>
+            <p>Diseñado por Tucciwebstudio</p>
           </div>
         </div>
       </div>

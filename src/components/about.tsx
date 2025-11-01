@@ -34,11 +34,11 @@ export default function About() {
           <div>
             <h2 className="text-4xl sm:text-5xl font-bold text-primary mb-6">Sobre Ferresur</h2>
             <p className="text-lg text-foreground/80 mb-4">
-              Ferresur nació hace más de 20 años en Merlo, brindando asesoramiento técnico y materiales de calidad para
+              Ferresur nació hace más de 20 años en Ituzaingó, brindando asesoramiento técnico y materiales de calidad para
               cada proyecto.
             </p>
             <p className="text-lg text-foreground/80 mb-8">
-              Nuestra misión es ser el aliado confiable de contratistas, profesionales y propietarios, ofreciendo
+              Nuestra misión es ser el aliado confiable de profesionales y propietarios, ofreciendo
               productos certificados y un equipo especializado listo para guiarte en cada compra.
             </p>
 
