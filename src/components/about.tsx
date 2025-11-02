@@ -9,7 +9,7 @@ export default function About() {
     {
       icon: Award,
       title: "Confianza",
-      desc: "20 años de trayectoria comprobada",
+      desc: "11 años de trayectoria comprobada",
     },
     {
       icon: CheckCircle,
