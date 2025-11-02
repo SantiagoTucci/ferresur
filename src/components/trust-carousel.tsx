@@ -107,7 +107,7 @@ export default function TrustCarousel() {
         <div className="grid grid-cols-1 sm:grid-cols-3 gap-8 mt-16 text-center">
           <div className="flex flex-col items-center">
             <p className="text-3xl sm:text-4xl lg:text-5xl font-bold text-primary mb-2">
-              {inView && <AnimatedNumber from={0} to={20} suffix="+" />}
+              {inView && <AnimatedNumber from={0} to={11} suffix="+" />}
             </p>
             <p className="text-base sm:text-lg lg:text-xl text-foreground/70 font-medium">
               años en el mercado
