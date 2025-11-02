@@ -14,7 +14,7 @@ const workAreas = [
   {
     id: 2,
     name: "Electricidad",
-    image: "/public/electricidad.webp",
+    image: "/electricidad.webp",
     description: "Materiales eléctricos certificados y asesoramiento profesional para instalaciones seguras.",
   },
   {

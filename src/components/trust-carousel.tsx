@@ -5,12 +5,12 @@ import { motion, useAnimation, useInView, useMotionValue, useTransform, animate 
 
 // Array de clientes con logos
 const clients = [
-  { name: "UCA", logo: "../public/brands/uca.webp" },
-  { name: "Janos", logo: "../public/brands/janos.webp" },
-  { name: "CAI", logo: "../public/brands/cai.webp" },
-  { name: "Sanitarios Alvarez", logo: "../public/brands/sanitarios-alvarez.webp" },
-  { name: "CAAI", logo: "../public/brands/caai.webp" },
-  { name: "GEI Ituzaingó", logo: "../public/brands/gei.webp" },
+  { name: "UCA", logo: "/uca.webp" },
+  { name: "Janos", logo: "/janos.webp" },
+  { name: "CAI", logo: "/cai.webp" },
+  { name: "Sanitarios Alvarez", logo: "/sanitarios-alvarez.webp" },
+  { name: "CAAI", logo: "/caai.webp" },
+  { name: "GEI Ituzaingó", logo: "/gei.webp" },
 ]
 
 export default function TrustCarousel() {
