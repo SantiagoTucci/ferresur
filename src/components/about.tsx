@@ -58,7 +58,7 @@ export default function About() {
           >
             <h2 className="text-4xl sm:text-5xl font-bold text-primary mb-6">Sobre Ferresur</h2>
             <p className="text-lg text-foreground/80 mb-4">
-              Ferresur nació hace más de 20 años en Ituzaingó, brindando asesoramiento técnico y materiales de calidad para
+              Ferresur nació hace más de 11 años en Ituzaingó, brindando asesoramiento técnico y materiales de calidad para
               cada proyecto.
             </p>
 
