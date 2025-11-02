@@ -36,7 +36,7 @@ export default function Navbar({ isScrolled }: NavbarProps) {
         <div className="flex justify-between items-center h-16">
           {/* Logo (Texto) */}
           <div className="flex items-center gap-2 cursor-pointer select-none">
-            <h1 className="text-2xl font-bold tracking-wide">
+            <h1 className="text-2xl font-bold ">
               <span className="text-primary">Ferre</span>
               <span className="text-accent italic">Sur</span>
             </h1>
