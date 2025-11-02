@@ -13,7 +13,7 @@ export default function Navbar({ isScrolled }: NavbarProps) {
 
   const navLinks = [
     { href: "#inicio", label: "Inicio" },
-    { href: "#ambitos", label: "Ambitos" },
+    { href: "#ambitos", label: "Ámbitos" },
     { href: "#nosotros", label: "Nosotros" },
     { href: "#contacto", label: "Contacto" },
   ]
@@ -34,13 +34,12 @@ export default function Navbar({ isScrolled }: NavbarProps) {
     >
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="flex justify-between items-center h-16">
-          {/* Logo */}
-          <div className="flex items-center gap-2">
-            <img
-              src="/src/assets/logo/ferresur.jpg"
-              alt="Ferresur Logo"
-              className="w-20 h-11 rounded-lg object-cover"
-            />
+          {/* Logo (Texto) */}
+          <div className="flex items-center gap-2 cursor-pointer select-none">
+            <h1 className="text-2xl font-bold tracking-wide">
+              <span className="text-primary">Ferre</span>
+              <span className="text-accent italic">Sur</span>
+            </h1>
           </div>
 
           {/* Desktop Navigation */}
@@ -59,7 +58,12 @@ export default function Navbar({ isScrolled }: NavbarProps) {
           {/* Desktop CTA */}
           <div className="hidden md:flex gap-4">
             <Button
-              onClick={() => scrollToSection("#contacto")}
+              onClick={() =>
+                window.open(
+                  "https://wa.me/5491150988814?text=Hola%20Ferresur",
+                  "_blank"
+                )
+              }
               className="bg-accent hover:bg-accent/90 text-accent-foreground"
             >
               Contáctanos
@@ -67,7 +71,11 @@ export default function Navbar({ isScrolled }: NavbarProps) {
           </div>
 
           {/* Mobile Menu Button */}
-          <button className="md:hidden" onClick={() => setIsOpen(!isOpen)} aria-label="Toggle menu">
+          <button
+            className="md:hidden"
+            onClick={() => setIsOpen(!isOpen)}
+            aria-label="Toggle menu"
+          >
             {isOpen ? <X size={24} /> : <Menu size={24} />}
           </button>
         </div>

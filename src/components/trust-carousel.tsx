@@ -1,31 +1,28 @@
 "use client"
 
 import { useEffect, useRef, useState } from "react"
-import { motion, useAnimation, useInView } from "framer-motion"
+import { motion, useAnimation, useInView, useMotionValue, useTransform, animate } from "framer-motion"
 
 // Array de clientes con logos
 const clients = [
-  { name: "UCA", logo: "../public/brands/uca.jpg" },
-  { name: "Janos", logo: "../public/brands/janos.jpg" },
-  { name: "Bosch", logo: "/logos/bosch.png" },
-  { name: "Makita", logo: "/logos/makita.png" },
-  { name: "Philips", logo: "/logos/philips.png" },
-  { name: "DeWalt", logo: "/logos/dewalt.png" },
+  { name: "UCA", logo: "../public/brands/uca.webp" },
+  { name: "Janos", logo: "../public/brands/janos.webp" },
+  { name: "CAI", logo: "../public/brands/cai.webp" },
+  { name: "Sanitarios Alvarez", logo: "../public/brands/sanitarios-alvarez.webp" },
+  { name: "CAAI", logo: "../public/brands/caai.webp" },
+  { name: "GEI Ituzaingó", logo: "../public/brands/gei.webp" },
 ]
 
 export default function TrustCarousel() {
   const scrollerRef = useRef<HTMLDivElement>(null)
-  const [scrollWidth, setScrollWidth] = useState(0)
 
-  // Animación vertical al aparecer
+  // Animación de entrada
   const controls = useAnimation()
   const ref = useRef(null)
   const inView = useInView(ref, { once: true, margin: "-100px" })
 
   useEffect(() => {
-    if (inView) {
-      controls.start({ opacity: 1, y: 0 })
-    }
+    if (inView) controls.start({ opacity: 1, y: 0 })
   }, [inView, controls])
 
   // Scroll automático infinito
@@ -36,15 +33,50 @@ export default function TrustCarousel() {
     let scrollPos = 0
     const speed = 1
 
-    const animate = () => {
+    const animateScroll = () => {
       scrollPos += speed
       if (scrollPos >= scroller.scrollWidth / 2) scrollPos = 0
       scroller.style.transform = `translateX(-${scrollPos}px)`
-      requestAnimationFrame(animate)
+      requestAnimationFrame(animateScroll)
     }
 
-    animate()
+    animateScroll()
   }, [])
+
+  // --- Animación de números ---
+  const AnimatedNumber = ({
+    from,
+    to,
+    suffix = "",
+  }: {
+    from: number
+    to: number
+    suffix?: string
+  }) => {
+    const motionValue = useMotionValue(from)
+    const rounded = useTransform(motionValue, (latest) => Math.floor(latest))
+    const [display, setDisplay] = useState(from)
+
+    useEffect(() => {
+      const controls = animate(motionValue, to, {
+        duration: 2,
+        ease: "easeOut",
+      })
+
+      const unsubscribe = rounded.on("change", (v) => setDisplay(v))
+      return () => {
+        unsubscribe()
+        controls.stop()
+      }
+    }, [to])
+
+    return (
+      <span>
+        {display}
+        {suffix}
+      </span>
+    )
+  }
 
   return (
     <section ref={ref} className="w-full py-26 bg-muted">
@@ -60,40 +92,44 @@ export default function TrustCarousel() {
 
         {/* Carousel */}
         <div className="overflow-hidden rounded-lg">
-          <div
-            ref={scrollerRef}
-            className="flex gap-8 whitespace-nowrap w-max"
-          >
+          <div ref={scrollerRef} className="flex gap-8 whitespace-nowrap w-max">
             {[...clients, ...clients].map((client, index) => (
-              <div
-                key={index}
-                className="flex-shrink-0 h-24 w-40 flex items-center justify-center"
-              >
+              <div key={index} className="flex-shrink-0 h-24 w-40 flex items-center justify-center p-1">
                 <div className="w-full h-full flex items-center justify-center rounded-lg bg-white shadow-md hover:shadow-lg transition-shadow">
-                  <img
-                    src={client.logo}
-                    alt={client.name}
-                    className="max-h-16 object-contain"
-                  />
+                  <img src={client.logo} alt={client.name} className="max-h-16 object-contain" />
                 </div>
               </div>
             ))}
           </div>
         </div>
 
-        {/* Stats */}
-        <div className="grid grid-cols-1 sm:grid-cols-3 gap-4 mt-12 text-center">
-          <div>
-            <p className="text-2xl font-bold text-primary">20+</p>
-            <p className="text-sm text-foreground/60">años en el mercado</p>
+        {/* Stats con animación */}
+        <div className="grid grid-cols-1 sm:grid-cols-3 gap-8 mt-16 text-center">
+          <div className="flex flex-col items-center">
+            <p className="text-3xl sm:text-4xl lg:text-5xl font-bold text-primary mb-2">
+              {inView && <AnimatedNumber from={0} to={20} suffix="+" />}
+            </p>
+            <p className="text-base sm:text-lg lg:text-xl text-foreground/70 font-medium">
+              años en el mercado
+            </p>
           </div>
-          <div>
-            <p className="text-2xl font-bold text-primary">50+</p>
-            <p className="text-sm text-foreground/60">marcas disponibles</p>
+
+          <div className="flex flex-col items-center">
+            <p className="text-3xl sm:text-4xl lg:text-5xl font-bold text-primary mb-2">
+              {inView && <AnimatedNumber from={0} to={50} suffix="+" />}
+            </p>
+            <p className="text-base sm:text-lg lg:text-xl text-foreground/70 font-medium">
+              marcas disponibles
+            </p>
           </div>
-          <div>
-            <p className="text-2xl font-bold text-primary">10K+</p>
-            <p className="text-sm text-foreground/60">clientes satisfechos</p>
+
+          <div className="flex flex-col items-center">
+            <p className="text-3xl sm:text-4xl lg:text-5xl font-bold text-primary mb-2">
+              {inView && <AnimatedNumber from={0} to={8000} suffix="+" />}
+            </p>
+            <p className="text-base sm:text-lg lg:text-xl text-foreground/70 font-medium">
+              clientes satisfechos
+            </p>
           </div>
         </div>
       </motion.div>

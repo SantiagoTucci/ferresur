@@ -6,11 +6,34 @@ import { MapPin, Phone, Mail, Clock } from "lucide-react"
 export default function Contact() {
   const mapRef = useRef<HTMLDivElement>(null)
   const [isMapLoaded, setIsMapLoaded] = useState(false)
+  const [visibleIndexes, setVisibleIndexes] = useState<number[]>([])
+  const containerRef = useRef<HTMLDivElement>(null)
 
   useEffect(() => {
     const timer = setTimeout(() => setIsMapLoaded(true), 500)
     return () => clearTimeout(timer)
   }, [])
+
+  useEffect(() => {
+    const observer = new IntersectionObserver(
+      (entries) => {
+        entries.forEach((entry) => {
+          const index = Number(entry.target.getAttribute("data-index"))
+          if (entry.isIntersecting && !visibleIndexes.includes(index)) {
+            setVisibleIndexes((prev) => [...prev, index])
+          }
+        })
+      },
+      {
+        threshold: 0.2,
+      }
+    )
+
+    const elements = containerRef.current?.querySelectorAll(".contact-item")
+    elements?.forEach((el) => observer.observe(el))
+
+    return () => observer.disconnect()
+  }, [visibleIndexes])
 
   const contactDetails = [
     { icon: MapPin, title: "Dirección", content: "Ituzaingó, Buenos Aires, Argentina" },
@@ -27,7 +50,7 @@ export default function Contact() {
           <p className="text-foreground/70">Estamos disponibles para responder tus preguntas</p>
         </div>
 
-        <div className="grid grid-cols-1 lg:grid-cols-2 gap-12">
+        <div ref={containerRef} className="grid grid-cols-1 lg:grid-cols-2 gap-12">
           {/* Contact Info */}
           <div className="space-y-8">
             <div className="grid grid-cols-1 sm:grid-cols-2 gap-6">
@@ -36,7 +59,11 @@ export default function Contact() {
                 return (
                   <div
                     key={index}
-                    className="flex gap-4 p-4 bg-background rounded-lg border border-border hover:border-accent transition-colors"
+                    data-index={index}
+                    className={`contact-item flex gap-4 p-4 bg-background rounded-lg border border-border 
+                      transition-all duration-700 ease-out
+                      ${visibleIndexes.includes(index) ? "opacity-100 translate-y-0" : "opacity-0 translate-y-10"}
+                      hover:border-accent`}
                   >
                     <Icon className="w-6 h-6 text-accent flex-shrink-0" />
                     <div>
