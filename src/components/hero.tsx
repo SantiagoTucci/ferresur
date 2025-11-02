@@ -44,7 +44,7 @@ export default function Hero() {
       {/* Content */}
       <div ref={contentRef} className="relative z-10 max-w-3xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
         <h1 className="text-3xl sm:text-4xl lg:text-5xl font-bold text-white mb-6 leading-tight text-balance">
-          Todo lo que necesitás para tus obras y reparaciones, en un solo lugar.
+          Todo lo que necesitás para tus obras, en un solo lugar.
         </h1>
 
         <p className="text-lg sm:text-xl text-white/90 mb-8 max-w-2xl mx-auto text-balance">
