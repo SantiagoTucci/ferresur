@@ -48,7 +48,7 @@ export default function Hero() {
         </h1>
 
         <p className="text-lg sm:text-xl text-white/90 mb-8 max-w-2xl mx-auto text-balance">
-          Más de 20 años acompañando tus obras y reparaciones. Calidad, confianza y asesoramiento personalizado.
+          Más de 20 años acompañando tus obras y reparaciones. Calidad, confianza y asesoramiento.
         </p>
           <div className="flex flex-col sm:flex-row gap-4 justify-center items-center">
             <Button
