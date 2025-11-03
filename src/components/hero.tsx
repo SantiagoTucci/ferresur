@@ -37,7 +37,7 @@ export default function Hero() {
           backgroundImage: "url(/hero-image.webp)",
           backgroundSize: "cover",
           backgroundPosition: "center",
-          filter: "brightness(18%)",
+          filter: "brightness(35%)",
         }}
       />
 
